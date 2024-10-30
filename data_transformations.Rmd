@@ -24,21 +24,21 @@ head(airquality_celsius)
 ```
 
 Function 2
-This function takes as input the argument data.
+This function takes as input the argument new_data.
 It adds a new column, `Hot_Day`, to the provided dataset, which flags "hot" days. 
-A day is considered "hot" (coded 1) if the temperature (`Temp` column) is above 80°F, 
+A day is considered "hot" (coded 1) if the temperature (`Temp` column) is above 70°F, 
 or not (coded 0).
 
 ```{r}
-add_hot_day_column <- function(data) {
+add_hot_day_column <- function(data_new) {
   # Set the temperature threshold
   temp_threshold <- 70
   
   # Check if the Temp column exists in the data
-  if ("Temp" %in% names(data)) {
+  if ("Temp" %in% names(data_new)) {
     # Create a new column Hot_Day, set to 1 if Temp is above the threshold, otherwise 0
-    data$Hot_Day <- ifelse(data$Temp > temp_threshold, 1, 0)
-    return(data)
+    data_new$Hot_Day <- ifelse(data_new$Temp > temp_threshold, 1, 0)
+    return(data_new)
   } else {
     stop("The data does not have a 'Temp' column.")
   }
