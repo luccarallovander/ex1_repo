@@ -1,0 +1,25 @@
+## Functions for Data Transformations 
+
+Function 1
+This function takes as input the argument data.
+It checks whether the dataset has a temperature variable and if so returns a new
+column with the temperature converted from fahrenheit to celsius.
+
+```{r}
+convert_temp_to_celsius <- function(data) {
+  
+  # Check if the Temp column exists in the data
+  if ("Temp" %in% names(data)) {
+    # Convert Temp from Fahrenheit to Celsius
+    data$Temp_C <- (data$Temp - 32) * (5 / 9)
+    return(data)
+  } else {
+    stop("The data does not have a 'Temp' column.")
+  }
+}
+
+# Running the function on R's airquality data
+airquality_celsius <- convert_temp_to_celsius(airquality)
+head(airquality_celsius)
+
+```
