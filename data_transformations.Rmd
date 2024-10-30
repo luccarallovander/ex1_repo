@@ -24,7 +24,7 @@ head(airquality_celsius)
 ```
 
 Function 2
-This function takes as input the argument new_data.
+This function takes as input the argument data_new
 It adds a new column, `Hot_Day`, to the provided dataset, which flags "hot" days. 
 A day is considered "hot" (coded 1) if the temperature (`Temp` column) is above 70°F, 
 or not (coded 0).

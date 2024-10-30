@@ -379,19 +379,19 @@ head(airquality_celsius)</code></pre>
 ## 4    18     313 11.5   62     5   4 16.66667
 ## 5    NA      NA 14.3   56     5   5 13.33333
 ## 6    28      NA 14.9   66     5   6 18.88889</code></pre>
-<p>Function 2 This function takes as input the argument data. It adds a
-new column, <code>Hot_Day</code>, to the provided dataset, which flags
+<p>Function 2 This function takes as input the argument data_new It adds
+a new column, <code>Hot_Day</code>, to the provided dataset, which flags
 “hot” days. A day is considered “hot” (coded 1) if the temperature
-(<code>Temp</code> column) is above 80°F, or not (coded 0).</p>
-<pre class="r"><code>add_hot_day_column &lt;- function(data) {
+(<code>Temp</code> column) is above 70°F, or not (coded 0).</p>
+<pre class="r"><code>add_hot_day_column &lt;- function(data_new) {
   # Set the temperature threshold
   temp_threshold &lt;- 70
   
   # Check if the Temp column exists in the data
-  if (&quot;Temp&quot; %in% names(data)) {
+  if (&quot;Temp&quot; %in% names(data_new)) {
     # Create a new column Hot_Day, set to 1 if Temp is above the threshold, otherwise 0
-    data$Hot_Day &lt;- ifelse(data$Temp &gt; temp_threshold, 1, 0)
-    return(data)
+    data_new$Hot_Day &lt;- ifelse(data_new$Temp &gt; temp_threshold, 1, 0)
+    return(data_new)
   } else {
     stop(&quot;The data does not have a &#39;Temp&#39; column.&quot;)
   }
